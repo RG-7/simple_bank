@@ -46,12 +46,12 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Check out code into the Go module directory
-        run: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Install go-lang migrate
         run: |
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.2/migrate.linux-arm64.tar.gz | tar xvz
-          sudo mv migrate.linux-amd64 /usr/bin/
+          sudo mv migrate.linux-amd64 /usr/bin/migrate
           which migrate
 
       - name: Run migrations
