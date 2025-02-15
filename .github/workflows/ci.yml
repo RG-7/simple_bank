@@ -37,16 +37,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      
+
+      # Runs a single command using the runners shell
+      - name: Check out code into the Go module directory
+        run: actions/checkout@v
+      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Set Up Go 1.x
         uses: actions/setup-go@v2
         with:
           go-version: ^1.15
         id: go
-
-      # Runs a single command using the runners shell
-      - name: Check out code into the Go module directory
-        run: actions/checkout@v2
 
       - name: Install go-lang migrate
         run: |
