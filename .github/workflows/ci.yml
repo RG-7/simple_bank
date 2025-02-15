@@ -52,9 +52,12 @@ jobs:
 
       - name: Install go-lang migrate
         run: |
-          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.2/migrate.linux-arm64.tar.gz | tar xvz
-          sudo mv migrate /usr/bin/migrate
+          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.2/migrate.linux-amd64.tar.gz | tar xvz
+          sudo mv migrate /usr/local/bin/migrate
+          chmod +x /usr/local/bin/migrate
           which migrate
+          migrate -version 
+
 
       - name: Run migrations
         run: make migrateup
